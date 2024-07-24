@@ -1,26 +1,26 @@
-Description:
+This document provides instructions for setting up and running tests for the project both locally using PyCharm and Docker.
 
+## Running from PyCharm Locally
 
-Running from pycharm locally:
-1. Import your project into pycharm
-2. In cmd you will need to create a python3 virtual environment using following command:
-virtualenv venv
-where venv is the title of your environment. If performed correctly a - a new "venv" folder will be created in "Shell_Assignment repo"
+1. **Import Project**: Open your project in PyCharm.
+2. **Create a Python Virtual Environment**:
+   - Run the command: `virtualenv venv`
+   - This creates a `venv` folder in the project directory.
+3. **Activate the Environment**:
+   - Run: `source venv/bin/activate`
+4. **Install Dependencies**:
+   - Run: `pip install -r requirements.txt`
 
-3. After environment is created, you need to activate it with following command:
-source venv2/bin/activate
+## Running the Application
 
-4. After activation, make sure to install all dependencies required with following command:
-pip install -r requirements.txt
+Tests are tagged for selective execution. Available tags are:
+- `@UI`
+- `@API`
 
-Running the application:
-
-All tests are marked with tags to enable selective test execution. Available tags are:
-@UI
-@API
-
-To run all tests use:
+To run all tests:
+```bash
 behave -f html -o /reports/behave-report.html
+
 
 To run tests marked by specific tag use:
 behave --tags=@YOUR_TAG -f html -o /reports/behave-report.html
