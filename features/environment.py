@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from features.page_objects.page_objects import LoginPage, HomePage, ProductPage, ProductsPage, NavigationModule,CheckoutPage
+from features.page_objects.page_objects import LoginPage, HomePage, ProductPage, ProductsPage, NavigationModule,CheckoutPage,PaymentPage
 import logging
 
 
@@ -27,7 +27,7 @@ def before_scenario(context, scenario):
 
 def start_browser(context):
     chrome_options = Options()
-    chrome_options.add_argument("--headless")  # Uncomment if headless mode is needed
+    # chrome_options.add_argument("--headless")  # Uncomment if headless mode is needed
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
@@ -41,6 +41,7 @@ def set_page_objects(context):
     context.home_page = HomePage(context.browser)
     context.navigation_page = NavigationModule(context.browser)
     context.checkout_page = CheckoutPage(context.browser)
+    context.payment_page = PaymentPage(context.browser)
 
 def after_scenario(context, scenario):
     if 'UI' in scenario.tags:
