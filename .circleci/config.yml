@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Run Behave UI Tests
           command: |
-            behave --tags=@UI -f html -o behave-report.html  
+            HEADLESS=true behave --tags=@UI -f html -o behave-report.html  
 
 workflows:
   version: 2
