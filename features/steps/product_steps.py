@@ -50,8 +50,8 @@ def step_impl(context):
 
 @when('I add the following items to the basket')
 def step_impl(context):
+    context.total_price = 0.0
     for row in context.table:
-        context.total_price = 0.0
         product_title = row['Product_title']
         size = row['Size']
         color = row['Color']
