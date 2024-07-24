@@ -1,0 +1,5 @@
+behave
+selenium
+requests
+behave-html-formatter
+pydantic
