@@ -30,6 +30,7 @@ jobs:
             sudo wget -N https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chromedriver-linux64.zip
             sudo unzip chromedriver-linux64.zip -d /usr/local/bin/
             sudo rm chromedriver-linux64.zip
+            sudo pwd
             sudo ls
             sudo mv -f /usr/local/bin/chromedriver /usr/bin/chromedriver
             sudo chmod +x /usr/bin/chromedriver
