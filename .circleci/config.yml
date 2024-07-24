@@ -31,9 +31,9 @@ jobs:
             sudo wget -N https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chromedriver-linux64.zip
             sudo unzip chromedriver-linux64.zip -d /usr/local/bin/
             sudo rm chromedriver-linux64.zip
-            sudo mv -f /usr/local/bin/chromedriver-linux64 /usr/bin/chromedriver
+            sudo mv -f /usr/local/bin/chromedriver-linux64 /usr/local/bin/chromedriver
             sudo chmod +x /usr/bin/chromedriver
-            echo 'export PATH=$PATH:/usr/bin/chromedriver' >> $BASH_ENV
+            echo 'export PATH=$PATH:/usr/local/bin/chromedriver' >> $BASH_ENV
             uname -srm
       - run:
           name: Set Permissions and Check Paths
