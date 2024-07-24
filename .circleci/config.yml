@@ -29,21 +29,11 @@ jobs:
           name: Download and install ChromeDriver
           command: |
             sudo wget -N https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chromedriver-linux64.zip
-            sudo unzip chromedriver-linux64.zip -d /usr/local/bin/
-            sudo rm chromedriver-linux64.zip
-            sudo mv -f /usr/local/bin/chromedriver-linux64 /usr/bin/chromedriver
-            sudo chmod +x /usr/bin/chromedriver
-            echo 'export PATH=$PATH:/usr/bin/chromedriver' >> $BASH_ENV
-            uname -srm
-      - run:
-          name: Set Permissions and Check Paths
-          command: |
-            echo 'PATH=/usr/local/bin:/usr/bin:$PATH' >> $BASH_ENV
-            sudo chmod +x /usr/bin/google-chrome
-            sudo chmod +x /usr/bin/chromedriver
-            echo 'PATH=/usr/local/bin:/usr/bin:$PATH' >> $BASH_ENV
+            unzip -j chromedriver-linux64.zip chromedriver-linux64/chromedriver
+            rm chromedriver-linux64.zip
+            mv chromedriver /usr/local/bin/
+            chrome --version
             chromedriver --version
-            google-chrome --version
       - run:
           name: Run Behave API Tests
           command: |
