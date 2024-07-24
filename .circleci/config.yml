@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Download and install ChromeDriver
           command: |
-            CHROME_DRIVER_VERSION='127.0.6533.72'
+            CHROME_DRIVER_VERSION=114.0.5735.90
             sudo wget -N https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
             sudo unzip chromedriver_linux64.zip -d /usr/local/bin/
             sudo rm chromedriver_linux64.zip
@@ -44,7 +44,8 @@ jobs:
       - run:
           name: Run Behave UI Tests
           command: |
-            behave --tags=@UI -f html -o behave-report.html
+            behave --tags=@UI -f html -o behave-report.html  
+
 workflows:
   version: 2
   test:
