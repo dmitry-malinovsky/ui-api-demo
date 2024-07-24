@@ -28,8 +28,8 @@ jobs:
           name: Download and install ChromeDriver
           command: |
             sudo wget -N https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chromedriver-linux64.zip
-            sudo unzip chromedriver_linux64.zip -d /usr/local/bin/
-            sudo rm chromedriver_linux64.zip
+            sudo unzip chromedriver-linux64.zip -d /usr/local/bin/
+            sudo rm chromedriver-linux64.zip
             sudo mv -f /usr/local/bin/chromedriver /usr/bin/chromedriver
             sudo chmod +x /usr/bin/chromedriver
             echo 'export PATH=$PATH:/usr/bin/chromedriver' >> $BASH_ENV
