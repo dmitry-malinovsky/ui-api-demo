@@ -27,14 +27,16 @@ jobs:
             sudo rm chrome-linux64.zip
             sudo mv chrome-linux64 /opt/chrome/
             sudo ln -s /opt/chrome/chrome /usr/local/bin/
+            chrome --version
       - run:
           name: Download and install ChromeDriver
           command: |
             sudo wget -N https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chromedriver-linux64.zip
+            sudo ls
             unzip chromedriver-linux64.zip
             sudo rm chromedriver-linux64.zip
             sudo mv chromedriver-linux64 /usr/local/bin/
-            chrome --version
+            
             chromedriver --version
       - run:
           name: Run Behave API Tests
