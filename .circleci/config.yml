@@ -1,44 +1,21 @@
 version: 2.1
 
 executors:
-  python-executor:
+  python-chromedriver-executor:
     docker:
-      - image: circleci/python:3.9  # Use a Python 3.9 Docker image
-    environment:
-      SELENIUM: /usr/bin/google-chrome
+      - image: joyzoursky/python-chromedriver:3.9
     working_directory: ~/repo
 
 jobs:
   setup:
-    executor: python-executor
+    executor: python-chromedriver-executor
     steps:
       - checkout
       - run:
-          name: Install dependencies
+          name: Install Python Dependencies
           command: |
             python -m pip install --upgrade pip
             pip install -r requirements.txt
-      - run:
-          name: Download and install Chrome
-          command: |
-            sudo wget -O chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chrome-linux64.zip
-            sudo ls
-            unzip chrome-linux64.zip
-            sudo rm chrome-linux64.zip
-            sudo mv chrome-linux64 /opt/chrome/
-            sudo ln -s /opt/chrome/chrome /usr/local/bin/
-            sudo apt install libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev --fix-missing
-            sudo chrome --version
-      - run:
-          name: Download and install ChromeDriver
-          command: |
-            sudo wget -N https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chromedriver-linux64.zip
-            sudo ls
-            unzip chromedriver-linux64.zip
-            sudo rm chromedriver-linux64.zip
-            sudo mv chromedriver-linux64 /usr/local/bin/
-            
-            chromedriver --version
       - run:
           name: Run Behave API Tests
           command: |
