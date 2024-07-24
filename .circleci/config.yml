@@ -1,0 +1,49 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: circleci/python:3.9  # Use a Python 3.9 Docker image
+    environment:
+      SELENIUM: /usr/bin/google-chrome
+    working_directory: ~/repo
+
+jobs:
+  setup:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+      - run:
+          name: Download and install Chrome
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y wget unzip
+            wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+            sudo apt-get update
+            sudo apt-get install -y google-chrome-stable
+      - run:
+          name: Download and install ChromeDriver
+          command: |
+            CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
+            wget -N https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip -d /usr/local/bin/
+            rm chromedriver_linux64.zip
+            sudo mv -f /usr/local/bin/chromedriver /usr/bin/chromedriver
+            sudo chmod +x /usr/bin/chromedriver
+            echo 'export PATH=$PATH:/usr/bin/chromedriver' >> $BASH_ENV
+      - run:
+          name: Run Behave Tests
+          command: |
+            behave -f allure_behave.formatter:AllureFormatter -o reports/allure-results --no-capture --no-capture-stderr
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - setup
