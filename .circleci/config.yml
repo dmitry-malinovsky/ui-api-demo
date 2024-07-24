@@ -32,6 +32,8 @@ jobs:
             sudo rm chromedriver-linux64.zip
             sudo pwd
             sudo ls
+            sudo cd /usr/local/bin/
+            sudo ls
             sudo mv -f /usr/local/bin/chromedriver /usr/bin/chromedriver
             sudo chmod +x /usr/bin/chromedriver
             echo 'export PATH=$PATH:/usr/bin/chromedriver' >> $BASH_ENV
