@@ -34,7 +34,7 @@ jobs:
             sudo mv -f /usr/local/bin/chromedriver-linux64 /usr/bin/chromedriver
             sudo chmod +x /usr/bin/chromedriver
             echo 'export PATH=$PATH:/usr/bin/chromedriver' >> $BASH_ENV
-            sudo ldd /usr/local/bin/chromedriver
+            uname -srm
       - run:
           name: Run Behave API Tests
           command: |
