@@ -27,6 +27,7 @@ jobs:
             sudo rm chrome-linux64.zip
             sudo mv chrome-linux64 /opt/chrome/
             sudo ln -s /opt/chrome/chrome /usr/local/bin/
+            sudo apt install libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev
             sudo chrome --version
       - run:
           name: Download and install ChromeDriver
