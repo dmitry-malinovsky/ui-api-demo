@@ -36,22 +36,14 @@ jobs:
             echo 'export PATH=$PATH:/usr/bin/chromedriver' >> $BASH_ENV
             uname -srm
       - run:
-          name: Download and install Headless Chrome
-          command: |
-            sudo wget -O chrome-headless-shell-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.57/linux64/chrome-headless-shell-linux64.zip
-            sudo unzip chrome-headless-shell-linux64.zip -d /usr/local/share/
-            sudo ln -s /usr/local/share/chrome-headless-shell-linux64/headless-shell /usr/bin/headless-chrome
-      - run:
           name: Set Permissions and Check Paths
           command: |
             echo 'PATH=/usr/local/bin:/usr/bin:$PATH' >> $BASH_ENV
             sudo chmod +x /usr/bin/google-chrome
-            sudo chmod +x /usr/bin/headless-chrome
             sudo chmod +x /usr/local/bin/chromedriver
             echo 'PATH=/usr/local/bin:/usr/bin:$PATH' >> $BASH_ENV
             chromedriver --version
             google-chrome --version
-            headless-chrome --version
       - run:
           name: Run Behave API Tests
           command: |
