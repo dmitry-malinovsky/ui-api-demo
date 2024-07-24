@@ -42,6 +42,16 @@ jobs:
             sudo unzip chrome-headless-shell-linux64.zip -d /usr/local/share/
             sudo ln -s /usr/local/share/chrome-headless-shell-linux64/headless-shell /usr/bin/headless-chrome
       - run:
+          name: Set Permissions and Check Paths
+          command: |
+            sudo chmod +x /usr/local/bin/chromedriver
+            sudo chmod +x /usr/bin/google-chrome
+            sudo chmod +x /usr/bin/headless-chrome
+            echo 'PATH=/usr/local/bin:/usr/bin:$PATH' >> $BASH_ENV
+            chromedriver --version
+            google-chrome --version
+            headless-chrome --version
+      - run:
           name: Run Behave API Tests
           command: |
             behave --tags=@API -f html -o behave-report.html
