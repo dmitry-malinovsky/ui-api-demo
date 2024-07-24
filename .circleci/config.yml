@@ -38,10 +38,13 @@ jobs:
             sudo chmod +x /usr/bin/chromedriver
             echo 'export PATH=$PATH:/usr/bin/chromedriver' >> $BASH_ENV
       - run:
-          name: Run Behave Tests
+          name: Run Behave API Tests
           command: |
-            behave -f allure_behave.formatter:AllureFormatter -o reports/allure-results --no-capture --no-capture-stderr
-
+            behave --tags=@API -f html -o behave-report.html
+      - run:
+          name: Run Behave UI Tests
+          command: |
+            behave --tags=@UI -f html -o behave-report.html
 workflows:
   version: 2
   test:
