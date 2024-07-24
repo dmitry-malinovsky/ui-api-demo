@@ -22,9 +22,10 @@ jobs:
           name: Download and install Chrome
           command: |
             sudo wget -O chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chrome-linux64.zip
-            sudo unzip chrome-linux64.zip -d /usr/local/share/
+            unzip chrome-linux64.zip
             sudo rm chrome-linux64.zip
-            sudo ln -s /usr/local/share/chrome-linux64/chrome /usr/bin/google-chrome
+            sudo mv chrome-linux64 /opt/chrome/
+            sudo ln -s /opt/chrome/chrome /usr/local/bin/
       - run:
           name: Download and install ChromeDriver
           command: |
