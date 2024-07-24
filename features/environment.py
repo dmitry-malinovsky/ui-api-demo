@@ -27,7 +27,7 @@ def before_scenario(context, scenario):
 
 def start_browser(context):
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")  # Uncomment if headless mode is needed
+    chrome_options.add_argument("--headless")  # Uncomment if headless mode is needed
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
