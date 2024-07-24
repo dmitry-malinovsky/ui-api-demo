@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from features.page_objects.page_objects import LoginPage, HomePage, ProductPage, ProductsPage, NavigationModule,CheckoutPage,PaymentPage
 import logging
+import os
 
 
 def before_all(context):
@@ -27,7 +28,8 @@ def before_scenario(context, scenario):
 
 def start_browser(context):
     chrome_options = Options()
-    chrome_options.add_argument("--headless")  # Uncomment if headless mode is needed
+    if os.getenv('HEADLESS', 'false').lower() == 'true':
+        chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
