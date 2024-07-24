@@ -44,9 +44,9 @@ jobs:
       - run:
           name: Set Permissions and Check Paths
           command: |
-            sudo chmod +x /usr/local/bin/chromedriver
             sudo chmod +x /usr/bin/google-chrome
             sudo chmod +x /usr/bin/headless-chrome
+            sudo chmod +x /usr/local/bin/chromedriver
             echo 'PATH=/usr/local/bin:/usr/bin:$PATH' >> $BASH_ENV
             chromedriver --version
             google-chrome --version
