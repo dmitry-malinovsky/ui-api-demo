@@ -42,6 +42,7 @@ jobs:
       - run:
           name: Run Behave UI Tests
           command: |
+            chormedriver --help
             behave --tags=@UI -f html -o behave-report.html  
 
 workflows:
