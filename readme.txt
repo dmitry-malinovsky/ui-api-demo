@@ -15,6 +15,8 @@ Due to technical limitation - API and UI products used for this project are not 
 - **Pydantic Models**: Ensures data validation and type enforcement for API responses.
 - **Authentication**: Includes functionality to generate and manage API tokens for authenticated endpoints.
 - **Reports**: Generates detailed test execution reports for analysis and review.
+- **Test formatting**: Tests are written in human readable and non technical language
+- **CI/CD**: On every commit - a CI/CD pipeline is executed to ensure stability of codebase
 
 ## Technologies Used
 
@@ -23,18 +25,25 @@ Due to technical limitation - API and UI products used for this project are not 
 - **Behave**: A BDD framework for writing tests in Gherkin language.
 - **Pydantic**: For data validation and settings management.
 - **Requests**: For making HTTP requests to the API.
+- **CircleCI**: For running all tests in CI/CD
+- **Docker**: For local deployment
 
 ## Prerequisites
 
 - **Python 3.x**: Ensure you have Python installed on your machine.
-- **WebDriver**: For Selenium, ensure the correct WebDriver (e.g., ChromeDriver) is installed.
+- **ChromeDriver**: For Selenium, ensure the correct ChromeDriver is installed.
+- **Chrome Browser**: For UI test chrome driver usage
 - **Virtual Environment**: Recommended for managing dependencies.
+- **Docker**: to run tests from a container instead of locally
 
 
-
-This document provides instructions for setting up and running tests for the project both locally using PyCharm and Docker.
+This Section provides instructions for setting up and running tests for the project both locally using:
+- **command line**
+- **docker **
 
 ## Running from PyCharm Locally
+
+Note: Enrusre all prerequisites are met before proceeding with setup
 
 1. **Import Project**: Open your project in PyCharm.
 2. **Create a Python Virtual Environment**:
@@ -45,7 +54,7 @@ This document provides instructions for setting up and running tests for the pro
 4. **Install Dependencies**:
    - Run: `pip install -r requirements.txt`
 
-## Running the Application
+## Running the Application:
 
 Tests are tagged for selective execution. Available tags are:
 - `@UI`
@@ -53,31 +62,33 @@ Tests are tagged for selective execution. Available tags are:
 
 To run all tests:
 ```bash
-behave -f html -o /reports/behave-report.html
+'behave -f html -o /reports/behave-report.html'
 
 
 To run tests marked by specific tag use:
-behave --tags=@YOUR_TAG -f html -o /reports/behave-report.html
+'behave --tags=@YOUR_TAG -f html -o /reports/behave-report.html'
 
+## Reporting:
+Navigating to /reports/behave-report.html will provide you with .html report with test redults
 
-Running from Docker locally:
+## Running from Docker locally:
 
-1. Using terminal go into projects root directory
-2. Using dockerfile - run following command depending on which machine you're running on:
+1. **Using terminal go into projects root directory**
+2. **Using dockerfile - run following command depending on which machine you're running on**:
 
-For linux x64/86 please use following command:
-docker build -t behave-tests .
+- For linux x64/86 please use following command:
+'docker build -t behave-tests .'
 
-While on Mac linux/amd64 use following command:
-docker build --platform linux/amd64 -t behave-tests .
+- While on Mac linux/amd64 use following command:
+'docker build --platform linux/amd64 -t behave-tests .'
 
-Once the image is built, you can run tests using following command:
+3. **Once the image is built, you can run tests using following command:**
 
-For linux x64/86 please use following command:
-docker run --rm behave-tests
+- For linux x64/86 please use following command:
+'docker run --rm behave-tests'
 
-While on Mac linux/amd64 use following command:
-docker run --rm --platform linux/amd64 behave-tests
+- While on Mac linux/amd64 use following command:
+'docker run --rm --platform linux/amd64 behave-tests'
 
 
 
