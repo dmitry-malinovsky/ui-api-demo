@@ -68,7 +68,7 @@ def step_impl(context):
             context.product_page.select_color(color)
 
         context.total_price += context.product_page.get_float_product_price()
-        print(context.total_price)
+        logger.info(context.total_price)
         context.product_page.add_to_cart()
 
 
@@ -80,7 +80,9 @@ def step_impl(context):
 @when('I proceed to checkout')
 def step_impl(context):
     context.product_page.click_basket_icon()
-    context.product_page.proceed_to_checkout()
 
     ## This hack line also stores ACTUAL total price that is on checkout. Since we cannot clean basket on each run.
-    context.total_price = context.product_page.get_total_price
+    context.total_price = context.product_page.get_total_price()
+
+    context.product_page.proceed_to_checkout()
+
