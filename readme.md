@@ -15,7 +15,7 @@ Due to technical limitation - API and UI products used for this project are not 
 - **Pydantic Models**: Ensures data validation and type enforcement for API responses.
 - **Authentication**: Includes functionality to generate and manage API tokens for authenticated endpoints.
 - **Reports**: Generates detailed test execution reports for analysis and review.
-- **Test formatting**: Tests are written in human readable and non technical language
+- **Test formatting**: Tests are written in human readable and non technical language.
 - **CI/CD**: On every commit - a CI/CD pipeline is executed to ensure stability of codebase
 
 ## Technologies Used
@@ -35,6 +35,7 @@ Due to technical limitation - API and UI products used for this project are not 
 - **Chrome Browser**: For UI test chrome driver usage
 - **Virtual Environment**: Recommended for managing dependencies.
 - **Docker**: to run tests from a container instead of locally
+- **Virtualenv**: to run tests on virtual environment
 
 
 This Section provides instructions for setting up and running tests for the project both locally using:
@@ -43,7 +44,7 @@ This Section provides instructions for setting up and running tests for the proj
 
 ## Running from PyCharm Locally
 
-Note: Enrusre all prerequisites are met before proceeding with setup
+Note: Make sure all prerequisites are met before proceeding with setup
 
 1. **Import Project**: Open your project in PyCharm.
 2. **Create a Python Virtual Environment**:
@@ -53,6 +54,8 @@ Note: Enrusre all prerequisites are met before proceeding with setup
    - Run: `source venv/bin/activate`
 4. **Install Dependencies**:
    - Run: `pip install -r requirements.txt`
+5. **Optional**: in case Brew did was not installed properly you can try:
+   - Run: "pip install behave"
 
 ## Running the Application:
 
@@ -61,15 +64,14 @@ Tests are tagged for selective execution. Available tags are:
 - `@API`
 
 To run all tests:
-```bash
-'behave -f html -o /reports/behave-report.html'
+```behave -f html -o behave-report.html```
 
 
 To run tests marked by specific tag use:
-'behave --tags=@YOUR_TAG -f html -o /reports/behave-report.html'
+'behave --tags=@YOUR_TAG -f html -o behave-report.html'
 
 ## Reporting:
-Navigating to /reports/behave-report.html will provide you with .html report with test redults
+Navigating to behave-report.html will provide you with .html report with test redults
 
 ## Running from Docker locally:
 
@@ -77,15 +79,15 @@ Navigating to /reports/behave-report.html will provide you with .html report wit
 2. **Using dockerfile - run following command depending on which machine you're running on**:
 
 - For linux x64/86 please use following command:
-'docker build -t behave-tests .'
+```docker build -t behave-tests .```
 
 - While on Mac linux/amd64 use following command:
-'docker build --platform linux/amd64 -t behave-tests .'
+```docker build --platform linux/amd64 -t behave-tests .```
 
 3. **Once the image is built, you can run tests using following command:**
 
 - For linux x64/86 please use following command:
-'docker run --rm behave-tests'
+```docker run --rm behave-tests```
 
 - While on Mac linux/amd64 use following command:
-'docker run --rm --platform linux/amd64 behave-tests'
+```docker run --rm --platform linux/amd64 behave-tests```
