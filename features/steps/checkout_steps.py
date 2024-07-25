@@ -28,6 +28,7 @@ def step_impl(context):
 
     expected_total_price = format_label(context.total_price)
 
+    logger.info(expected_total_price)
     logger.info(actual_total_price)
     logger.info(actual_shipping)
 
