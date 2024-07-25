@@ -16,8 +16,6 @@ def before_all(context):
 
     context.ui_url = "https://magento.softwaretestingboard.com"
     context.api_url = "https://restful-booker.herokuapp.com/"
-    encoded_token = "QmFzaWMgWVdSaGFXNDZjam9rTlRBek5UWTFNalUw"
-    context.auth_token = "YWRtaW46cGFzc3dvcmQxMjM="
 
 
 def before_feature(context, feature):
