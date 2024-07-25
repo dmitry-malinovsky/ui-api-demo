@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import logging
+import time
 
 from features.page_objects.base_page_object import BasePageObject
 
@@ -57,7 +58,7 @@ class ProductPage(BasePageObject):
 
     def click_basket_icon(self):
         self.browser.find_element(*self.BASKET_ICON).click()
-        self.browser.implicitly_wait(3)
+        time.sleep(3)
 
     def proceed_to_checkout(self):
         self.browser.find_element(*self.PROCEED_TO_CHECKOUT_BUTTON).click()
