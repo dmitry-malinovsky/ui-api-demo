@@ -89,7 +89,3 @@ Navigating to /reports/behave-report.html will provide you with .html report wit
 
 - While on Mac linux/amd64 use following command:
 'docker run --rm --platform linux/amd64 behave-tests'
-
-
-
-

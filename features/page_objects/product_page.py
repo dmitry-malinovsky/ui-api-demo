@@ -16,6 +16,7 @@ class ProductPage(BasePageObject):
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.message-success')
     BASKET_ICON = (By.CSS_SELECTOR, 'a.action.showcart')
     PROCEED_TO_CHECKOUT_BUTTON = (By.ID, 'top-cart-btn-checkout')
+    CURRENT_TOTAL_PRICE = (By.XPATH, "//span[@class='price-wrapper']/span[@class='price']")
 
     def get_product_title(self):
         return self.browser.find_element(*self.PRODUCT_TITLE).text
@@ -59,3 +60,6 @@ class ProductPage(BasePageObject):
 
     def proceed_to_checkout(self):
         self.browser.find_element(*self.PROCEED_TO_CHECKOUT_BUTTON).click()
+
+    def get_total_price(self):
+        return self.browser.find_element(*self.CURRENT_TOTAL_PRICE).text

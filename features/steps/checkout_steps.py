@@ -26,11 +26,12 @@ def step_impl(context):
     actual_total_price = format_label(context.payment_page.get_total_value())
     actual_shipping = format_label(context.payment_page.get_shipping_cost())
 
+    expected_total_price = format_label(context.total_price)
+
     logger.info(actual_total_price)
     logger.info(actual_shipping)
 
-    assert actual_total_price == context.total_price
-
+    assert actual_total_price == expected_total_price, f"Expected total price {expected_total_price}, but got {actual_total_price}"
 
 
 def format_label(str):

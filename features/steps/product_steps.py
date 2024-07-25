@@ -81,3 +81,6 @@ def step_impl(context):
 def step_impl(context):
     context.product_page.click_basket_icon()
     context.product_page.proceed_to_checkout()
+
+    ## This hack line also stores ACTUAL total price that is on checkout. Since we cannot clean basket on each run.
+    context.total_price = context.product_page.get_total_price
