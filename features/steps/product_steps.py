@@ -1,5 +1,7 @@
 from behave import given, when, then
-from features.page_objects.page_objects import NavigationModule, ProductsPage, ProductPage
+from features.page_objects.main_page import NavigationModule
+from features.page_objects.products_page import ProductsPage
+from features.page_objects.product_page import ProductPage
 import logging
 
 logger = logging.getLogger(__name__)

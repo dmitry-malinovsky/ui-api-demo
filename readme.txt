@@ -1,3 +1,37 @@
+# Test Automation Framework
+
+## Overview
+
+This project is a sample test automation framework designed to validate the functionalities of both web and API endpoints. It uses Behavior-Driven Development (BDD) to write tests in a human-readable format, ensuring that both technical and non-technical stakeholders can understand the testing processes.
+Due to technical limitation - API and UI products used for this project are not related
+
+- **UI product**: https://magento.softwaretestingboard.com/
+- **API product**: https://restful-booker.herokuapp.com/
+
+## Features
+
+- **UI Testing**: Automates end-to-end testing of web applications using Selenium WebDriver.
+- **API Testing**: Validates API endpoints using HTTP methods like GET, POST, PUT, and DELETE.
+- **Pydantic Models**: Ensures data validation and type enforcement for API responses.
+- **Authentication**: Includes functionality to generate and manage API tokens for authenticated endpoints.
+- **Reports**: Generates detailed test execution reports for analysis and review.
+
+## Technologies Used
+
+- **Python**: The core programming language.
+- **Selenium WebDriver**: For automating web browser interactions.
+- **Behave**: A BDD framework for writing tests in Gherkin language.
+- **Pydantic**: For data validation and settings management.
+- **Requests**: For making HTTP requests to the API.
+
+## Prerequisites
+
+- **Python 3.x**: Ensure you have Python installed on your machine.
+- **WebDriver**: For Selenium, ensure the correct WebDriver (e.g., ChromeDriver) is installed.
+- **Virtual Environment**: Recommended for managing dependencies.
+
+
+
 This document provides instructions for setting up and running tests for the project both locally using PyCharm and Docker.
 
 ## Running from PyCharm Locally

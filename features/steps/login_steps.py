@@ -1,5 +1,5 @@
 from behave import given, when, then
-from features.page_objects.page_objects import LoginPage, HomePage
+from features.page_objects.main_page import LoginPage, HomePage
 import logging
 
 logger = logging.getLogger(__name__)
