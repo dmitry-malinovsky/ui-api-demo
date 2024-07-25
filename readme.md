@@ -33,7 +33,7 @@ Due to technical limitation - API and UI products used for this project are not 
 - **Python 3.x**: Ensure you have Python installed on your machine.
 - **ChromeDriver**: For Selenium, ensure the correct ChromeDriver is installed.
 - **Chrome Browser**: For UI test chrome driver usage
-- **Note:** - [Here][https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json]  you can find all compatible versions
+- **Note:**  [Here](https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json) you can find all compatible versions
 - **Virtual Environment**: Recommended for managing dependencies.
 - **Docker**: to run tests from a container instead of locally
 - **Virtualenv**: to run tests on virtual environment
@@ -69,7 +69,7 @@ To run all tests:
 
 
 To run tests marked by specific tag use:
-'behave --tags=@YOUR_TAG -f html -o behave-report.html'
+```behave --tags=@YOUR_TAG -f html -o behave-report.html```
 
 ## Reporting:
 Navigating to behave-report.html will provide you with .html report with test redults
